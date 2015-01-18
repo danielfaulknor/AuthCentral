@@ -83,4 +83,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
      slave.vm.provision "shell", inline: $slave_script
    end
 
+   config.vm.define "proxy" do |proxy|
+     proxy.vm.box =  "debian-7.5.0_puppet"
+     proxy.vm.box_url = "http://mirror.netbydesign.biz/vagrant/debian-7.5.0_puppet.box"
+     proxy.vm.box_download_checksum = "5fb438988ddb6ce864f010fc902d4d020f4324cd"
+     proxy.vm.box_download_checksum_type = "sha1"
+     proxy.vm.network "private_network", ip: "192.168.50.4"
+
+     proxy.vm.network "forwarded_port", guest: 80, host: 8082
+
+     proxy.vm.provision "shell", inline: $slave_script
+   end
+
 end

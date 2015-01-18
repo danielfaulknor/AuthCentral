@@ -8,7 +8,7 @@ apt-get -y install ntpdate
 ntpdate pool.ntp.org
 
 # Set Hostname
-echo "master" > /etc/hostname
+echo "master-dev" > /etc/hostname
 hostname -F /etc/hostname
 
 # Install Sublime Text and dependencies

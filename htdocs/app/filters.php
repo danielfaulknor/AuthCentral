@@ -13,7 +13,8 @@
 
 App::before(function($request)
 {
-	//
+	//icky fix to make Authy work :(
+		require_once __DIR__.'/../vendor/resty/resty/Resty.php';
 });
 
 

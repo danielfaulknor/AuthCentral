@@ -5,7 +5,12 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+		"authy/php": "dev-master#eba3890",
+		"resty/resty": "dev-master#dfd5047 as 0.6.0"
+	},
+	"require-dev": {
+		"way/generators": "~2.0"
 	},
 	"autoload": {
 		"classmap": [
@@ -15,7 +20,8 @@
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"
-		]
+		],
+		"classmap": ["vendor/resty"]
 	},
 	"scripts": {
 		"post-install-cmd": [

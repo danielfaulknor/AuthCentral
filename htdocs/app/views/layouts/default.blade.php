@@ -64,7 +64,23 @@
           </button>
           <a class="navbar-brand" href="/">AuthCentral</a>
         </div>
-
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li ><a href="/">Home</a></li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            @if (Auth::check())
+            <li><a href="{{ URL::to('panel') }}">Dashboard</a></li>
+            @if (Auth::user()->admin)
+            <li ><a href="/users">Users</a></li>
+            @endif
+            <li><a href="{{ URL::to('logout') }}">Log Out</a></li>
+            @else
+            <li><a href="{{ URL::to('login') }}">Log In</a></li>
+            <li><a href="{{ URL::to('create') }}">Register</a></li>
+            @endif
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
     </div>
 
